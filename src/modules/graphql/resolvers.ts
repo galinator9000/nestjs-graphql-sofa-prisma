@@ -2,7 +2,7 @@ import { Resolver, Query, ResolveField, Parent, Args, Mutation, Context } from '
 import { PrismaService } from '../prisma/prisma.service';
 
 @Resolver()
-export class GraphqlResolver {
+export class GraphqlResolvers {
   constructor(
       private prisma: PrismaService,
   ) {}
@@ -17,7 +17,6 @@ export class GraphqlResolver {
     @Args('name') name: string
   ) {
     return this.prisma.user.create({
-      //@ts-ignore
       data: {
         name: name
       }
